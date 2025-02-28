@@ -126,7 +126,9 @@ namespace Assignment2.Components.Pages.Data
 
            foreach (Flight flight in flights)
             {
-                if (from.Equals(flight.From) && to.Equals(flight.To) && weekday.Equals(WEEKDAY_ANY))
+                //Minor Update: Fixed a bug by replacing weekday.Equals(WEEKDAY_ANY) to now properly check for the flights weekday.
+                if ((from.Equals(flight.From) || from.Equals(WEEKDAY_ANY)) && (to.Equals(flight.To) || to.Equals(WEEKDAY_ANY))
+                    && (weekday.Equals(flight.Weekday) || weekday.Equals(WEEKDAY_ANY)))
                 {
                     found.Add(flight);
                 }
