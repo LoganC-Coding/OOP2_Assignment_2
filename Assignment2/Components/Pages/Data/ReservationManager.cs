@@ -131,11 +131,19 @@ namespace Assignment2.Components.Pages.Data
         {
             var lines = File.ReadAllLines(Reservation_TXT).ToList();
 
-            // TODO
             // Add code to change the status from Active to Cancelled for the selected flight
-            // and update the record in the reservation.csv file  
-            // ...................................
+            for (int i = 0; i < lines.Count; i++)
+            {
+                var parts = lines[i].Split(',');
+                if (parts[0] == res.Code)
+                {
+                    parts[6] = "Cancelled";
+                    lines[i] = string.Join(",", parts);
+                    break;
+                }
+            }
 
+            // and update the record in the reservation.csv file  
             File.WriteAllLines(Reservation_TXT, lines);
         }
     }
