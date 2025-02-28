@@ -49,7 +49,6 @@ namespace Assignment2.Components.Pages.Data
          * The location of the airports text database file.
          */
 
-        //public static string AIRPORTS_TEXT = @"..\..\..\..\..\Resources\Files\airports.csv";
         public static string AIRPORTS_TEXT = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\..\..\Resources\Files\airports.csv");
 
         public static List<Flight> flights = new List<Flight>();
